@@ -6,58 +6,104 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 21:34:53 by palucena          #+#    #+#             */
-/*   Updated: 2023/12/17 19:19:58 by palucena         ###   ########.fr       */
+/*   Updated: 2023/12/18 22:51:00 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Contact.hpp"
 
-void	Contact::SetFn(std::string str)
+void	Contact::SetFn(void)
 {
-	this->FirstName = str;
+	std::string	str;
+
+	do
+	{
+		std::cout << "First name: ";
+		std::getline(std::cin, str);
+	} while (str == "\0");
+	this->_firstName = str;
 }
 
-void	Contact::SetLn(std::string str)
+void	Contact::SetLn(void)
 {
-	this->LastName = str;
+	std::string	str;
+
+	do
+	{
+		std::cout << "Last name: ";
+		std::getline(std::cin, str);
+	} while (str == "\0");
+	this->_lastName = str;
 }
 
-void	Contact::SetNn(std::string str)
+void	Contact::SetNn(void)
 {
-	this->Nickname = str;
+	std::string	str;
+
+	do
+	{
+		std::cout << "Nickname: ";
+		std::getline(std::cin, str);
+	} while (str == "\0");
+	this->_nickname = str;
 }
 
-void	Contact::SetPn(int n)
+bool	check_digit(std::string str)
 {
-	this->PhoneNumber = n;
+	for (int i = 0; str[i]; i++)
+	{
+		if (!std::isdigit(str[i]))
+			return (false);
+	}
+	return (true);
 }
 
-void	Contact::SetDs(std::string str)
+void	Contact::SetPn(void)
 {
-	this->DarkestSecret = str;
+	std::string	str;
+
+	do
+	{
+		std::cout << "Phone number: ";
+		std::getline(std::cin, str);
+		
+	} while (!check_digit(str));
+	this->_phoneNumber = std::stoi(str);
+}
+
+void	Contact::SetDs(void)
+{
+	std::string	str;
+
+	do
+	{
+		std::cout << "Darkest secret: ";
+		std::getline(std::cin, str);
+	} while (str == "\0");
+	this->_darkestSecret = str;
 }
 
 std::string	Contact::GetFn(void)
 {
-	return (this->FirstName);
+	return (this->_firstName);
 }
 
 std::string	Contact::GetLn(void)
 {
-	return (this->LastName);
+	return (this->_lastName);
 }
 
 std::string	Contact::GetNn(void)
 {
-	return (this->Nickname);
+	return (this->_nickname);
 }
 
 int	Contact::GetPn(void)
 {
-	return (this->PhoneNumber);
+	return (this->_phoneNumber);
 }
 
 std::string	Contact::GetDs(void)
 {
-	return (this->DarkestSecret);
+	return (this->_darkestSecret);
 }

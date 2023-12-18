@@ -1,6 +1,6 @@
 NAME = YellowPages
 
-SRC = main.cpp PhoneBook.cpp Contact.cpp
+SRC = src/main.cpp src/PhoneBook.cpp src/Contact.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

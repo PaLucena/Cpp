@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 21:34:50 by palucena          #+#    #+#             */
-/*   Updated: 2023/12/17 20:00:09 by palucena         ###   ########.fr       */
+/*   Updated: 2023/12/18 22:52:28 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@
 
 class PhoneBook {
 	private:
-		Contact	contacts[8];
+		Contact	_contacts[8];
+		int		_numberOfContacts;
 	public:
+		PhoneBook();
 		void	AddContact();
-		//...
+		void	RotateContacts();
+		void	DisplayAll();
+		int		GetNumberOfContacts();
 };
 
 #endif
