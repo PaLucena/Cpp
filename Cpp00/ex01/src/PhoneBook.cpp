@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 21:35:25 by palucena          #+#    #+#             */
-/*   Updated: 2023/12/19 13:48:06 by palucena         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:16:42 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,12 @@ void	PhoneBook::RotateContacts(void)
 
 void	PhoneBook::DisplayAll(void)
 {
+	std::cout << std::endl << " " << std::setw(44) << std::setfill('-') << " ";
 	std::cout << std::endl << "|" << std::setfill(' ') << std::setw(10) << "Index";
 	std::cout << "|" << std::setfill(' ') << std::setw(10) << "First name";
 	std::cout << "|" << std::setfill(' ') << std::setw(10) << "Last name";
 	std::cout << "|" << std::setfill(' ') << std::setw(10) << "Nickname" << "|" << std::endl;
+	std::cout << "|" << std::setw(44) << std::setfill('-') << "|" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		std::cout << "|" << std::setfill(' ') << std::setw(10) << (i + 1) << "|";
@@ -64,6 +66,7 @@ void	PhoneBook::DisplayAll(void)
 		else
 			std::cout << std::setfill(' ') << std::setw(10) << this->_contacts[i].GetNn() << "|" << std::endl;
 	}
+	std::cout << " " << std::setw(44) << std::setfill('-') << " " << std::endl << std::endl;
 }
 
 static bool	CheckDigit(std::string str)
