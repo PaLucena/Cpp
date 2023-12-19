@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 21:34:53 by palucena          #+#    #+#             */
-/*   Updated: 2023/12/18 22:51:00 by palucena         ###   ########.fr       */
+/*   Updated: 2023/12/19 13:33:55 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	Contact::SetNn(void)
 	this->_nickname = str;
 }
 
-bool	check_digit(std::string str)
+static bool	CheckDigit(std::string str)
 {
 	for (int i = 0; str[i]; i++)
 	{
@@ -67,8 +67,8 @@ void	Contact::SetPn(void)
 		std::cout << "Phone number: ";
 		std::getline(std::cin, str);
 		
-	} while (!check_digit(str));
-	this->_phoneNumber = std::stoi(str);
+	} while (str == "\0" || !CheckDigit(str));
+	this->_phoneNumber = std::stol(str);
 }
 
 void	Contact::SetDs(void)
