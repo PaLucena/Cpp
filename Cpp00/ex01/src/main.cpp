@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 21:34:57 by palucena          #+#    #+#             */
-/*   Updated: 2023/12/19 13:11:08 by palucena         ###   ########.fr       */
+/*   Updated: 2023/12/19 13:53:21 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(void)
 				YellowPages.AskIndex();
 			}
 			else
-				std::cout << "There are no contacts yet.";
+				std::cout << "There are no contacts yet." << std::endl;
 		}
 	} while (cmd != "EXIT");
 	return (0);
