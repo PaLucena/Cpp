@@ -6,46 +6,52 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 21:34:53 by palucena          #+#    #+#             */
-/*   Updated: 2023/12/19 18:39:24 by palucena         ###   ########.fr       */
+/*   Updated: 2023/12/27 01:14:04 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Contact.hpp"
 
-void	Contact::SetFn(void)
+bool	Contact::SetFn(void)
 {
 	std::string	str;
 
 	do
 	{
 		std::cout << "First name: ";
-		std::getline(std::cin, str);
+		if (!std::getline(std::cin, str))
+			return 0;
 	} while (str == "\0");
 	this->_firstName = str;
+	return 1;
 }
 
-void	Contact::SetLn(void)
+bool	Contact::SetLn(void)
 {
 	std::string	str;
 
 	do
 	{
 		std::cout << "Last name: ";
-		std::getline(std::cin, str);
+		if (!std::getline(std::cin, str))
+			return 0;
 	} while (str == "\0");
 	this->_lastName = str;
+	return 1;
 }
 
-void	Contact::SetNn(void)
+bool	Contact::SetNn(void)
 {
 	std::string	str;
 
 	do
 	{
 		std::cout << "Nickname: ";
-		std::getline(std::cin, str);
+		if (!std::getline(std::cin, str))
+			return 0;
 	} while (str == "\0");
 	this->_nickname = str;
+	return 1;
 }
 
 static bool	CheckDigit(std::string str)
@@ -58,29 +64,33 @@ static bool	CheckDigit(std::string str)
 	return (true);
 }
 
-void	Contact::SetPn(void)
+bool	Contact::SetPn(void)
 {
 	std::string	str;
 
 	do
 	{
 		std::cout << "Phone number: ";
-		std::getline(std::cin, str);
+		if (!std::getline(std::cin, str))
+			return 0;
 		
 	} while (str == "\0" || !CheckDigit(str));
-	this->_phoneNumber = std::stol(str);
+	this->_phoneNumber = std::atol(str.c_str());
+	return 1;
 }
 
-void	Contact::SetDs(void)
+bool	Contact::SetDs(void)
 {
 	std::string	str;
 
 	do
 	{
 		std::cout << "Darkest secret: ";
-		std::getline(std::cin, str);
+		if (!std::getline(std::cin, str))
+			return 0;
 	} while (str == "\0");
 	this->_darkestSecret = str;
+	return 1;
 }
 
 std::string	Contact::GetFn(void)

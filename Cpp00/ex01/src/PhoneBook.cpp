@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 21:35:25 by palucena          #+#    #+#             */
-/*   Updated: 2023/12/19 16:16:42 by palucena         ###   ########.fr       */
+/*   Updated: 2023/12/27 01:11:37 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ PhoneBook::PhoneBook(void)
 	this->_numberOfContacts = 0;
 }
 
-void	PhoneBook::AddContact(void)
+bool	PhoneBook::AddContact(void)
 {
 	std::string	str;
 	int			index = this->_numberOfContacts;
@@ -29,11 +29,17 @@ void	PhoneBook::AddContact(void)
 		this->RotateContacts();
 		index--;
 	}
-	this->_contacts[index].SetFn();
-	this->_contacts[index].SetLn();
-	this->_contacts[index].SetNn();
-	this->_contacts[index].SetPn();
-	this->_contacts[index].SetDs();
+	if (!this->_contacts[index].SetFn())
+		return 0;
+	if (!this->_contacts[index].SetLn())
+		return 0;
+	if (!this->_contacts[index].SetNn())
+		return 0;
+	if (!this->_contacts[index].SetPn())
+		return 0;
+	if (!this->_contacts[index].SetDs())
+		return 0;
+	return 1;
 }
 
 void	PhoneBook::RotateContacts(void)
@@ -79,21 +85,23 @@ static bool	CheckDigit(std::string str)
 	return (true);
 }
 
-void	PhoneBook::AskIndex(void)
+bool	PhoneBook::AskIndex(void)
 {
 	std::string	nb;
 
 	do
 	{
 		std::cout << "Index: ";
-		std::getline(std::cin, nb);
-	} while (nb == "\0" ||!CheckDigit(nb) || std::stol(nb) <= 0 || std::stol(nb) > 8);
+		if (!std::getline(std::cin, nb))
+			return 0;
+	} while (nb == "\0" ||!CheckDigit(nb) || std::atol(nb.c_str()) <= 0 || std::atol(nb.c_str()) > 8);
 	std::cout << std::endl << "  Contact info: " << std::endl;
-	std::cout << std::endl << "First name: " << this->_contacts[std::stol(nb) - 1].GetFn();
-	std::cout << std::endl << "Last name: " << this->_contacts[std::stol(nb) - 1].GetLn();
-	std::cout << std::endl << "Nickname: " << this->_contacts[std::stol(nb) - 1].GetNn();
-	std::cout << std::endl << "Phone number: " << this->_contacts[std::stol(nb) - 1].GetPn();
-	std::cout << std::endl << "Darkest secret: " << this->_contacts[std::stol(nb) - 1].GetDs() << std::endl;
+	std::cout << std::endl << "First name: " << this->_contacts[std::atol(nb.c_str()) - 1].GetFn();
+	std::cout << std::endl << "Last name: " << this->_contacts[std::atol(nb.c_str()) - 1].GetLn();
+	std::cout << std::endl << "Nickname: " << this->_contacts[std::atol(nb.c_str()) - 1].GetNn();
+	std::cout << std::endl << "Phone number: " << this->_contacts[std::atol(nb.c_str()) - 1].GetPn();
+	std::cout << std::endl << "Darkest secret: " << this->_contacts[std::atol(nb.c_str()) - 1].GetDs() << std::endl;
+	return 1;
 }
 
 int		PhoneBook::GetNumberOfContacts(void)

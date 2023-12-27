@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 21:34:57 by palucena          #+#    #+#             */
-/*   Updated: 2023/12/19 18:54:40 by palucena         ###   ########.fr       */
+/*   Updated: 2023/12/27 01:16:26 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,17 @@ int	main(void)
 	do
 	{
 		std::cout << "> ";
-		std::getline(std::cin, cmd);
-		if (cmd == "ADD")
-			YellowPages.AddContact();
+		if (!std::getline(std::cin, cmd))
+			return 1;
+		if (cmd == "ADD" && !YellowPages.AddContact())
+			return 1;
 		else if (cmd == "SEARCH")
 		{
 			if (YellowPages.GetNumberOfContacts())
 			{
 				YellowPages.DisplayAll();
-				YellowPages.AskIndex();
+				if (!YellowPages.AskIndex())
+					return 1;
 			}
 			else
 				std::cout << "There are no contacts yet." << std::endl;
