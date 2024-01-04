@@ -1,7 +1,7 @@
-NAME = NOMBRE
+NAME = Fixed1.0
 
 SRC_PATH = src/
-SRC = main.cpp Harl.cpp
+SRC = main.cpp Fixed.cpp
 
 OBJ_PATH = obj/
 OBJ = $(addprefix $(OBJ_PATH), $(SRC:.cpp=.o))
