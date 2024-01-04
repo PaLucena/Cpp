@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:55:19 by palucena          #+#    #+#             */
-/*   Updated: 2024/01/04 16:41:53 by palucena         ###   ########.fr       */
+/*   Updated: 2024/01/04 16:54:18 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Fixed::Fixed(const float Nb)
 {
 	std::cout << "Float constructor called" << std::endl;
 	this->fractionalBits = 8;
-	this->fixedNb = static_cast<int>(Nb * (1 << this->fractionalBits));
+	this->fixedNb = static_cast<int>(roundf(Nb * (1 << this->fractionalBits)));
 }
 
 Fixed	&Fixed::operator=(const Fixed &toCopy)
@@ -78,5 +78,5 @@ float	Fixed::toFloat() const
 
 int	Fixed::toInt() const
 {
-	return static_cast<int>(this->fixedNb / (1 << this->fractionalBits));
+	return static_cast<int>(roundf(this->fixedNb / (1 << this->fractionalBits)));
 }
