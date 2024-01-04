@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:55:19 by palucena          #+#    #+#             */
-/*   Updated: 2024/01/04 17:31:36 by palucena         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:35:28 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,18 @@ std::ostream	&operator<<(std::ostream &out, const Fixed &toCopy)
 {
 	out << toCopy.toFloat();
 	return out;
+}
+
+Fixed	&Fixed::operator++()
+{
+	this->fixedNb++;
+	return *this;
+}
+
+Fixed	&Fixed::operator--()
+{
+	this->fixedNb--;
+	return *this;
 }
 
 //mil overloads

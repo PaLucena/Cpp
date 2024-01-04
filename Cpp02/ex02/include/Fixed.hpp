@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:51:31 by palucena          #+#    #+#             */
-/*   Updated: 2024/01/04 16:41:34 by palucena         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:35:34 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class Fixed {
 		Fixed(const int Nb);
 		Fixed(const float Nb);
 		Fixed	&operator=(const Fixed &toCopy);
+		Fixed	&operator++();
+		Fixed	&operator--();
 		~Fixed();
 		int		getRawBits() const;
 		void	setRawBits(int const Raw);
