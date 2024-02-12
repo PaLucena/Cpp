@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:54:56 by palucena          #+#    #+#             */
-/*   Updated: 2024/01/04 17:30:16 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/08 15:28:53 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int main(void)
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
+
 	std::cout << b << std::endl;
+
 	std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
 }
