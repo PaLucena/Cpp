@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:35:26 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/13 11:10:16 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:14:32 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	ClapTrap	subjectA("Bully");
+	ClapTrap	subjectA;
 	ClapTrap	subjectB("Nerd");
 
 	subjectA.setAttackDamage(2000);

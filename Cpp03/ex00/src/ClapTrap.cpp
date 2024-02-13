@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:24:09 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/13 11:11:23 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:15:32 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 ClapTrap::ClapTrap()
 {
 	std::cout << "Default constructor called" << std::endl;
+	this->_Name = "Unknown";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
