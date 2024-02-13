@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 17:58:32 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/13 15:26:11 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:02:04 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ class ClapTrap {
 		~ClapTrap();
 		ClapTrap		&operator=(ClapTrap &toCopy);
 		void			attack(const std::string& target);
-		void			takeDamage(unsigned int amount);
-		void			beRepaired(unsigned int amount);
-		void			setAttackDamage(unsigned int amount);
+		virtual void			takeDamage(unsigned int amount);
+		virtual void			beRepaired(unsigned int amount);
+		virtual void			setAttackDamage(unsigned int amount);
 		unsigned int	getAttackDamage();
 } ;
 

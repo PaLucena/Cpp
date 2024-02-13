@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:03:11 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/13 15:13:35 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:03:52 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ class FragTrap: public ClapTrap {
 		FragTrap(FragTrap &toCopy);
 		~FragTrap();
 		FragTrap	&operator=(FragTrap &toCopy);
+		void		attack(const std::string& target);
+		void		takeDamage(unsigned int amount);
+		void		beRepaired(unsigned int amount);
 		void		highFivesGuys();
 } ;
 
