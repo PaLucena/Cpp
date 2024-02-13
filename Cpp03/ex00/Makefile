@@ -1,4 +1,4 @@
-NAME = Open
+NAME = BattleArena
 
 SRC_PATH = src/
 SRC = main.cpp ClapTrap.cpp

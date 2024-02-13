@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:24:09 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/12 19:07:21 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/13 11:11:23 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (this->_energyPoints > 0)
 	{
-		std::cout << "ClapTrap " << this->_Name << " attacks " << target << " causing " << this->_attackDamage << " amount of damage" << std::endl;
+		std::cout << "ClapTrap " << this->_Name << " attacks " << target << " causing " << this->_attackDamage << " points of damage" << std::endl;
 		this->_energyPoints--;
 	}
 	else
@@ -64,11 +64,17 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hitPoints > 0)
 	{
-		std::cout << "ClapTrap " << this->_Name << " has received " << amount << " points of damage" << std::endl;
-		this->_hitPoints -= amount;
+		std::cout << "ClapTrap " << this->_Name << " has been hit with " << amount << " points of damage" << std::endl;
+		if (amount >= this->_hitPoints)
+		{
+			std::cout << "ClapTrap " << this->_Name << " died." << std::endl;
+			this->_hitPoints = 0;
+		}
+		else
+			this->_hitPoints -= amount;
 	}
 	else
-		std::cout << "ClapTrap " << this->_Name << " is already dead... God bless it" << std::endl;
+		std::cout << "ClapTrap " << this->_Name << " is already dead... God bless it's soul" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -81,4 +87,14 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	else
 		std::cout << "ClapTrap " << this->_Name << "doesn't have enough energy to repair itself..." << std::endl;
+}
+
+void	ClapTrap::setAttackDamage(unsigned int amount)
+{
+	this->_attackDamage = amount;
+}
+
+unsigned int	ClapTrap::getAttackDamage()
+{
+	return (this->_attackDamage);
 }
