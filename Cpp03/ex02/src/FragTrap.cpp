@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:01:42 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/13 16:05:17 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:02:28 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,16 @@ void	FragTrap::takeDamage(unsigned int amount)
 
 void	FragTrap::beRepaired(unsigned int amount)
 {
-	if (this->_energyPoints > 0)
+	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
 		std::cout << "FragTrap " << this->_Name << " has recovered " << amount << " hit points" << std::endl;
 		this->_hitPoints += amount;
 		this->_energyPoints--;
 	}
-	else
+	else if (this->_energyPoints == 0)
 		std::cout << "FragTrap " << this->_Name << "doesn't have enough energy to repair itself..." << std::endl;
+	else if (this->_hitPoints == 0)
+		std::cout << "FragTrap " << this->_Name << " is dead. It cannot repair itself" << std::endl;
 }
 
 void	FragTrap::highFivesGuys()

@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 11:30:12 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/13 16:06:16 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:01:19 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,16 @@ void	ScavTrap::takeDamage(unsigned int amount)
 
 void	ScavTrap::beRepaired(unsigned int amount)
 {
-	if (this->_energyPoints > 0)
+	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
 		std::cout << "ScavTrap " << this->_Name << " has recovered " << amount << " hit points" << std::endl;
 		this->_hitPoints += amount;
 		this->_energyPoints--;
 	}
-	else
+	else if (this->_energyPoints == 0)
 		std::cout << "ScavTrap " << this->_Name << "doesn't have enough energy to repair itself..." << std::endl;
+	else if (this->_hitPoints == 0)
+		std::cout << "ScavTrap " << this->_Name << " is dead. It cannot repair itself" << std::endl;
 }
 
 void	ScavTrap::guardGate()

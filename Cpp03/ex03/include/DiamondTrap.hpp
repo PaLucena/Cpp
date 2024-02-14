@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:09:37 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/13 17:05:34 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:05:02 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class DiamondTrap: public ScavTrap, public FragTrap {
 		void		attack(const std::string& target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
+		void		whoAmI();
 } ;
 
 #endif

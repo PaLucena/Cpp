@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:35:26 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/13 17:02:07 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:39:47 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int	main(void)
 	Robot.attack("Manuel");
 	subjectB.takeDamage(Robot.getAttackDamage());
 	subjectB.highFivesGuys();
+	subjectC.whoAmI();
 	return 0;
 }
