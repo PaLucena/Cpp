@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:42:32 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/14 14:08:51 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/14 18:33:40 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,10 @@ Animal::~Animal()
 void	Animal::makeSound() const
 {
 	std::cout << "@#$%&!" << std::endl;
+}
+
+
+std::string		Animal::getType()
+{
+	return this->_type;
 }
