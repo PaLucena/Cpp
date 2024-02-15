@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 19:11:05 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/15 12:02:10 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/15 12:10:38 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ void	Brain::setIdea(const std::string str)
 
 std::string	Brain::getIdea(const int i)
 {
-	return _ideas[i];
+	return (i < _ideaCounter)?(_ideas[i]):("[No thought here]");
 }
