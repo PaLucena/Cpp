@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:42:50 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/14 18:50:16 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:28:11 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Animal {
 		Animal();
 		Animal(const Animal &toCopy);
 		Animal	&operator=(const Animal &toCopy);
-		~Animal();
+		virtual	~Animal();
 		virtual void	makeSound() const;
 		std::string		getType();
 } ;
