@@ -6,36 +6,37 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 18:26:58 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/14 19:01:55 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/15 12:20:08 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Animal.hpp"
 #include "../include/Dog.hpp"
 #include "../include/Cat.hpp"
-#include "../include/WrongAnimal.hpp"
-#include "../include/WrongCat.hpp"
 
 int	main(void)
 {
-	Animal	Ditto;
-	std::cout << "Ditto(" << Ditto.getType() << "): ";
-	Ditto.makeSound();
+	Animal	*Ditto = new Animal();
+	std::cout << "Ditto(" << Ditto->getType() << "): ";
+	Ditto->makeSound();
+	delete Ditto;
+	std::cout << std::endl;
 
-	Dog		Doggo;
-	std::cout << "Doggo(" << Doggo.getType() << "): ";
-	Doggo.makeSound();
+	Dog	*Doggo = new Dog();
+	std::cout << "Doggo(" << Doggo->getType() << "): ";
+	Doggo->makeSound();
+	Doggo->lightBulb("Steak...");
+	Doggo->thinkOutLoud();
+	delete Doggo;
+	std::cout << std::endl;
 
-	Cat		Catto;
-	std::cout << "Catto(" << Catto.getType() << "): ";
-	Catto.makeSound();
+	Cat	*Catto = new Cat();
+	std::cout << "Catto(" << Catto->getType() << "): ";
+	Catto->makeSound();
+	Catto->lightBulb("Scratches...");
+	Catto->thinkOutLoud();
+	delete Catto;
+	std::cout << std::endl;
 
-	WrongAnimal	Dittont;
-	std::cout << "Dittont(" << Dittont.getType() << "): ";
-	Dittont.makeSound();
-
-	WrongCat	Cattont;
-	std::cout << "Cattont(" << Cattont.getType() << "): ";
-	Cattont.makeSound();
 	return 0;
 }
