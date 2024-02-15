@@ -1,7 +1,7 @@
 NAME = Polimorphism2.0
 
 SRC_PATH = src/
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 
 OBJ_PATH = obj/
 OBJ = $(addprefix $(OBJ_PATH), $(SRC:.cpp=.o))
