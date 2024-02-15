@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 19:11:05 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/15 11:21:02 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/15 12:02:10 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Brain::Brain(const Brain &toCopy)
 
 Brain	&Brain::operator=(const Brain &toCopy)
 {
-	for (int i = 0; i <= toCopy._ideaCounter; i++)
+	for (int i = 0; i < toCopy._ideaCounter; i++)
 		_ideas[i] = toCopy._ideas[i];
 	_ideaCounter = toCopy._ideaCounter;
 	return *this;
