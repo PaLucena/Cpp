@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 18:26:58 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/14 19:01:55 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:26:00 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,35 @@
 
 int	main(void)
 {
-	Animal	Ditto;
-	std::cout << "Ditto(" << Ditto.getType() << "): ";
-	Ditto.makeSound();
+	Animal	*Ditto = new Animal();
+	std::cout << "Ditto(" << Ditto->getType() << "): ";
+	Ditto->makeSound();
+	delete Ditto;
+	std::cout << std::endl;
 
-	Dog		Doggo;
-	std::cout << "Doggo(" << Doggo.getType() << "): ";
-	Doggo.makeSound();
+	Animal	*Doggo = new Dog();
+	std::cout << "Doggo(" << Doggo->getType() << "): ";
+	Doggo->makeSound();
+	delete Doggo;
+	std::cout << std::endl;
 
-	Cat		Catto;
-	std::cout << "Catto(" << Catto.getType() << "): ";
-	Catto.makeSound();
+	Animal	*Catto = new Cat();
+	std::cout << "Catto(" << Catto->getType() << "): ";
+	Catto->makeSound();
+	delete Catto;
+	std::cout << std::endl;
 
-	WrongAnimal	Dittont;
-	std::cout << "Dittont(" << Dittont.getType() << "): ";
-	Dittont.makeSound();
+	WrongAnimal	*Dittont = new WrongAnimal();
+	std::cout << "Dittont(" << Dittont->getType() << "): ";
+	Dittont->makeSound();
+	delete Dittont;
+	std::cout << std::endl;
 
-	WrongCat	Cattont;
-	std::cout << "Cattont(" << Cattont.getType() << "): ";
-	Cattont.makeSound();
+	WrongAnimal	*Cattont = new WrongCat();
+	std::cout << "Cattont(" << Cattont->getType() << "): ";
+	Cattont->makeSound();
+	delete Cattont;
+	std::cout << std::endl;
+
 	return 0;
 }
