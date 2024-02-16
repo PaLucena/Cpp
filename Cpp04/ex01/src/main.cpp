@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 18:26:58 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/15 12:20:08 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/16 19:15:08 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(void)
 	std::cout << "Doggo(" << Doggo->getType() << "): ";
 	Doggo->makeSound();
 	Doggo->lightBulb("Steak...");
+	Doggo->lightBulb("Hola me llamo Carlos");
 	Doggo->thinkOutLoud();
 	delete Doggo;
 	std::cout << std::endl;

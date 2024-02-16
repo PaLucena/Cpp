@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 18:06:36 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/16 18:17:48 by palucena         ###   ########.fr       */
+/*   Created: 2024/02/16 18:44:26 by palucena          #+#    #+#             */
+/*   Updated: 2024/02/16 18:44:33 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Cure.hpp"
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
-Cure::Cure()
+class ICharacter
 {
-	std::cout << "[Cure] Default constructor called" << std::endl;
-	_type = "cure";
-}
+	public:
+		virtual ~ICharacter() {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
+};
 
-
+#endif

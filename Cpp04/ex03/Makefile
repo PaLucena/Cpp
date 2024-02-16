@@ -1,7 +1,7 @@
 NAME = Interface
 
 SRC_PATH = src/
-SRC = main.cpp
+SRC = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp
 
 OBJ_PATH = obj/
 OBJ = $(addprefix $(OBJ_PATH), $(SRC:.cpp=.o))

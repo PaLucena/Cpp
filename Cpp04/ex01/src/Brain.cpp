@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 19:11:05 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/15 12:18:50 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/16 19:24:30 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,13 @@ Brain::~Brain()
 
 void	Brain::setIdea(const std::string str)
 {
-	_ideas[_ideaCounter] = str;
-	_ideaCounter++;
+	if (_ideaCounter < 100)
+	{
+		_ideas[_ideaCounter] = str;
+		_ideaCounter++;
+	}
+	else
+		std::cout << "This brain is full of ideas!" << std::endl;
 }
 
 std::string	Brain::getIdea(const int i)
