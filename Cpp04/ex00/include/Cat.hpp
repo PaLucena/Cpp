@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:46:06 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/14 18:50:47 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/16 19:09:44 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include "Animal.hpp"
 
 class	Cat: public Animal {
-	protected:
-		std::string	_type;
 	public:
 		Cat();
 		Cat(const Cat &toCopy);
