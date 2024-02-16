@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:46:06 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/15 12:20:08 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/16 19:09:30 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 class	Cat: public Animal {
 	private:
-		std::string	_type;
 		Brain		*_brain;
 	public:
 		Cat();
