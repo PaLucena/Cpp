@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:02:09 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/15 16:41:07 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:27:50 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <string>
 # include <iostream>
-
+# include "Character.hpp"
 class AMateria
 {
 	protected:
@@ -26,7 +26,7 @@ class AMateria
 		AMateria(const AMateria &toCopy);
 		AMateria	&operator=(const AMateria &toCopy);
 		~AMateria();
-		std::string const	&getType() const; //Returns the materia type
+		std::string const	&getType() const;
 		virtual AMateria	*clone() const = 0;
 		virtual void		use(ICharacter &target);
 };

@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:01:12 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/16 18:42:04 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:31:28 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CURE_HPP
 
 # include "AMateria.hpp"
+# include "Character.hpp"
 
 class	Cure: public AMateria {
 	public:
@@ -22,9 +23,9 @@ class	Cure: public AMateria {
 		Cure(const Cure &toCopy);
 		Cure	&operator=(const Cure &toCopy);
 		~Cure();
-		std::string const	&getType() const; //Returns the materia type
-		Cure	*clone() const = 0;
-		void		use(ICharacter &target);	
+		std::string const	&getType() const;
+		Cure				*clone() const;
+		void				use(ICharacter &target);	
 };
 
 #endif

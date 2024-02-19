@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:46:34 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/15 15:46:43 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:55:56 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ AMateria::AMateria()
 
 AMateria::AMateria(std::string const &type)
 {
-	std::cout << "[AMateria] String< constructor called" << std::endl;
+	std::cout << "[AMateria] Type constructor called" << std::endl;
 	_type = type;
 }
 
@@ -31,7 +31,8 @@ AMateria::AMateria(const AMateria &toCopy)
 
 AMateria	&AMateria::operator=(const AMateria &toCopy)
 {
-	_type = toCopy._type;
+	if (*this != toCopy)
+		_type = toCopy._type;
 	return *this;
 }
 
