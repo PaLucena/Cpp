@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:46:26 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/15 12:20:08 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:13:44 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Dog::Dog()
 Dog::Dog(const Dog &toCopy)
 {
 	std::cout << "[Dog] Copy constructor called" << std::endl;
+	_brain = new Brain();
 	*this = toCopy;
 }
 
