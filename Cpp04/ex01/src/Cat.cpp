@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:46:37 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/15 12:20:08 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/19 13:05:34 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Cat::Cat()
 Cat::Cat(const Cat &toCopy)
 {
 	std::cout << "[Cat] Copy constructor called" << std::endl;
+	_brain = new Brain();
 	*this = toCopy;
 }
 

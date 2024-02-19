@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 18:26:58 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/16 19:15:08 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:09:56 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,13 @@
 
 int	main(void)
 {
-	Animal	*Ditto = new Animal();
-	std::cout << "Ditto(" << Ditto->getType() << "): ";
-	Ditto->makeSound();
-	delete Ditto;
-	std::cout << std::endl;
+	Animal	*Crew[4] = {new Dog(), new Cat(), new Dog(), new Cat()};
 
-	Dog	*Doggo = new Dog();
-	std::cout << "Doggo(" << Doggo->getType() << "): ";
-	Doggo->makeSound();
-	Doggo->lightBulb("Steak...");
-	Doggo->lightBulb("Hola me llamo Carlos");
-	Doggo->thinkOutLoud();
-	delete Doggo;
-	std::cout << std::endl;
+	for (int i = 0; i < 4; i++)
+		Crew[i]->makeSound();
 
-	Cat	*Catto = new Cat();
-	std::cout << "Catto(" << Catto->getType() << "): ";
-	Catto->makeSound();
-	Catto->lightBulb("Scratches...");
-	Catto->thinkOutLoud();
-	delete Catto;
-	std::cout << std::endl;
-
+	for (int i = 0; i < 4; i++)
+		delete Crew[i];
+	
 	return 0;
 }

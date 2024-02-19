@@ -6,13 +6,13 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:46:26 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/16 19:14:00 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/19 13:51:20 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Dog.hpp"
 
-Dog::Dog()
+Dog::Dog(): Animal()
 {
 	std::cout << "[Dog] Default constructor called" << std::endl;
 	_type = "Dog";
@@ -22,6 +22,7 @@ Dog::Dog()
 Dog::Dog(const Dog &toCopy)
 {
 	std::cout << "[Dog] Copy constructor called" << std::endl;
+	_brain = new Brain();
 	*this = toCopy;
 }
 
