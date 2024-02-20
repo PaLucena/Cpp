@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:00:58 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/19 20:14:23 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/20 09:13:44 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 #ifndef ICE_HPP
 # define ICE_HPP
 
-# include "AMateria.hpp"
-# include "Character.hpp"
+# include "Headers.hpp"
 
 class Ice: public AMateria {
 	public:

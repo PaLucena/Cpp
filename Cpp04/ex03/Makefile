@@ -1,13 +1,13 @@
 NAME = Interface
 
 SRC_PATH = src/
-SRC = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp
+SRC = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp
 
 OBJ_PATH = obj/
 OBJ = $(addprefix $(OBJ_PATH), $(SRC:.cpp=.o))
 
 CC = c++
-CPPFLAGS = -std=c++98 -Wall -Werror -Wextra
+CPPFLAGS = -std=c++98 -Wall -Werror -Wextra -fsanitize=address
 
 HEADERS = -I ./include
 

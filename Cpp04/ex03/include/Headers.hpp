@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Headers.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 14:02:09 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/20 09:34:19 by palucena         ###   ########.fr       */
+/*   Created: 2024/02/20 09:09:09 by palucena          #+#    #+#             */
+/*   Updated: 2024/02/20 09:20:51 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef HEADERS_HPP
+# define HEADERS_HPP
 
-# include "Headers.hpp"
+# include <string>
+# include <iostream>
 
-class AMateria
-{
-	protected:
-		std::string	_type;
-	public:
-		AMateria();
-		AMateria(std::string const &type);
-		AMateria(const AMateria &toCopy);
-		AMateria	&operator=(const AMateria &toCopy);
-		virtual 	~AMateria();
-		std::string const	&getType() const;
-		virtual AMateria	*clone() const = 0;
-		virtual void		use(ICharacter &target);
-};
+# include "ICharacter.hpp"
+# include "AMateria.hpp"
+# include "Cure.hpp"
+# include "Ice.hpp"
+# include "Character.hpp"
+# include "IMateriaSource.hpp"
+# include "MateriaSource.hpp"
 
 #endif

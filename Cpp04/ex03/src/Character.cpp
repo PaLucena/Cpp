@@ -6,11 +6,11 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:19:45 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/19 20:15:53 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/20 11:00:27 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Character.hpp"
+#include "../include/Headers.hpp"
 
 Character::Character()
 {
@@ -52,7 +52,10 @@ Character::~Character()
 {
 	std::cout << "[Character] Destructor called" << std::endl;
 	for (int i = 0; i < _usage; i++)
-		delete _inventory[i];
+	{
+		if (_inventory[i] != NULL)
+			delete _inventory[i];
+	}
 }
 
 std::string const &Character::getName() const

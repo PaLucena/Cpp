@@ -6,11 +6,11 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:46:34 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/19 19:55:56 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/20 09:41:12 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "../include/Headers.hpp"
 
 AMateria::AMateria()
 {
@@ -31,7 +31,7 @@ AMateria::AMateria(const AMateria &toCopy)
 
 AMateria	&AMateria::operator=(const AMateria &toCopy)
 {
-	if (*this != toCopy)
+	if (this != &toCopy)
 		_type = toCopy._type;
 	return *this;
 }
@@ -39,4 +39,14 @@ AMateria	&AMateria::operator=(const AMateria &toCopy)
 AMateria::~AMateria()
 {
 	std::cout << "[AMateria] Destructor called" << std::endl;
+}
+
+std::string const	&AMateria::getType() const
+{
+	return _type;
+}
+
+void	AMateria::use(ICharacter &target)
+{
+	std::cout << "* Undisclosed action towards " << target.getName() << std::endl;
 }

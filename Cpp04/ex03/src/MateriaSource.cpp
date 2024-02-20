@@ -6,11 +6,11 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:10:25 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/19 21:08:27 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/20 11:19:31 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/MateriaSource.hpp"
+#include "../include/Headers.hpp"
 
 MateriaSource::MateriaSource()
 {
@@ -40,8 +40,6 @@ MateriaSource	&MateriaSource::operator=(const MateriaSource &toCopy)
 MateriaSource::~MateriaSource()
 {
 	std::cout << "[MateriaSource] Destructor called" << std::endl;
-	for (int i = 0; i < _usage; i++)
-		delete _storage[i];
 }
 
 void	MateriaSource::learnMateria(AMateria *m)

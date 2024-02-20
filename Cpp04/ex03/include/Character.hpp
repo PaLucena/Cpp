@@ -6,16 +6,14 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:44:26 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/19 19:57:40 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/20 09:13:31 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-# include "ICharacter.hpp"
-# include "Cure.hpp"
-# include "Ice.hpp"
+# include "Headers.hpp"
 
 class Character: public ICharacter {
 	private:

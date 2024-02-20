@@ -6,11 +6,11 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:06:36 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/19 20:19:21 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/20 09:31:22 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Cure.hpp"
+#include "../include/Headers.hpp"
 
 Cure::Cure()
 {
@@ -27,6 +27,7 @@ Cure::Cure(std::string const &type)
 Cure::Cure(const Cure &toCopy)
 {
 	std::cout << "[Cure] Copy constructor called" << std::endl;
+	(void)toCopy;
 }
 
 Cure	&Cure::operator=(const Cure &toCopy)

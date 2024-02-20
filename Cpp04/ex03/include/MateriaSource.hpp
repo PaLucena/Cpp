@@ -6,16 +6,16 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:04:48 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/19 20:22:40 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/20 09:22:11 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
-# include "IMateriaSource.hpp"
+# include "Headers.hpp"
 
-class MateriaSource
+class MateriaSource: public IMateriaSource
 {
 	private:
 		AMateria	*_storage[4];

@@ -6,11 +6,11 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:00:37 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/19 20:19:28 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/20 09:31:22 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Ice.hpp"
+#include "../include/Headers.hpp"
 
 Ice::Ice()
 {
@@ -27,6 +27,7 @@ Ice::Ice(std::string const &type)
 Ice::Ice(const Ice &toCopy)
 {
 	std::cout << "[Ice] Copy constructor called" << std::endl;
+	(void)toCopy;
 }
 
 Ice	&Ice::operator=(const Ice &toCopy)

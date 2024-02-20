@@ -6,14 +6,14 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:01:41 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/19 20:05:28 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/20 09:13:51 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMATERIASOURCE_HPP
 # define IMATERIASOURCE_HPP
 
-# include "AMateria.hpp"
+# include "Headers.hpp"
 
 class IMateriaSource
 {

@@ -6,13 +6,11 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:12:16 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/15 14:46:03 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/20 10:43:34 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/AMateria.hpp"
-#include "../include/Ice.hpp"
-#include "../include/Cure.hpp"
+#include "../include/Headers.hpp"
 
 int	main(void)
 {
