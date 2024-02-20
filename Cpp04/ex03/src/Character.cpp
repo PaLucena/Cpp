@@ -41,7 +41,7 @@ Character	&Character::operator=(const Character &toCopy)
 	if (this != &toCopy)
 	{
 		_name = toCopy._name;
-		for (int i = 0; i < toCopy._usage; i++)
+		for (int i = 0; i < toCopy._usage && toCopy._inventory[i]; i++)
 			_inventory[i] = toCopy._inventory[i]->clone();
 		_usage = toCopy._usage;
 	}

@@ -22,7 +22,6 @@ class	Cat: public Animal {
 		Cat	&operator=(const Cat &toCopy);
 		~Cat();
 		void	makeSound() const;
-		
 } ;
 
 #endif

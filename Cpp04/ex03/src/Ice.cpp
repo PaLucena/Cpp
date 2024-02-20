@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:00:37 by palucena          #+#    #+#             */
-/*   Updated: 2024/02/20 09:31:22 by palucena         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:38:22 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Ice::Ice()
 {
 	std::cout << "[Ice] Default constructor called" << std::endl;
-	_type = "Ice";
+	_type = "ice";
 }
 
 Ice::Ice(std::string const &type)
@@ -55,5 +55,5 @@ Ice	*Ice::clone() const
 
 void	Ice::use(ICharacter &target)
 {
-	std::cout << "* heals " << target.getName() << "'s wounds" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << std::endl;
 }
