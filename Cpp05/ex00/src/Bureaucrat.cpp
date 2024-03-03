@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:28:07 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/03 20:37:37 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/03 21:29:30 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void	Bureaucrat::incrementGrade()
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
 }
 
 void	Bureaucrat::decrementGrade()
