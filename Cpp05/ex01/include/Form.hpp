@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:43:35 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/03 21:40:57 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/04 11:13:14 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ class	Form {
 		int			getGradeToExec() const;
 		void	beSigned(const Bureaucrat &signer);
 
-		class GradeToLowException: public std::exception {
+		class GradeTooLowException: public std::exception {
 			public:
 				virtual const char *what() const throw() {
 					return ("Exception: Grade too low");
 				}
 		};
-		class GradeToHighException: public std::exception {
+		class GradeTooHighException: public std::exception {
 			public:
 				virtual const char *what() const throw() {
 					return ("Exception: Grade too high");
