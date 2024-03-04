@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:49:07 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/04 11:14:26 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/04 11:30:21 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	Form::getGradeToExec() const
 void	Form::beSigned(const Bureaucrat &signer)
 {
 	if (signer.getGrade() > _gradeToSign)
-		throw (Form::GradeToLowException());
+		throw (Form::GradeTooLowException());
 	else
 		_signed = true;
 }
