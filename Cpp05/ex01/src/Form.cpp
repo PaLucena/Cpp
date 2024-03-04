@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:49:07 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/03 21:44:09 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/04 11:14:26 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ Form::Form(const std::string &name, const int gradeToSign, const int gradeToExec
 	try
 	{
 		if (gradeToExec < 1 || gradeToSign < 1)
-			throw (Form::GradeToHighException());
+			throw (Form::GradeTooHighException());
 		else if (gradeToExec > 150 || gradeToSign > 150)
-			throw (Form::GradeToLowException());
+			throw (Form::GradeTooLowException());
 	}
 	catch(const std::exception& e)
 	{
@@ -39,9 +39,9 @@ Form::Form(const Form &toCopy): _name(toCopy._name), _gradeToSign(toCopy._gradeT
 	try
 	{
 		if (toCopy._gradeToExec < 1 || toCopy._gradeToSign < 1)
-			throw (Form::GradeToHighException());
+			throw (Form::GradeTooHighException());
 		else if (toCopy._gradeToExec > 150 || toCopy._gradeToSign > 150)
-			throw (Form::GradeToLowException());
+			throw (Form::GradeTooLowException());
 	}
 	catch(const std::exception& e)
 	{
