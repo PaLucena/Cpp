@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:28:04 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/04 13:27:41 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/04 15:21:58 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ int	main(void)
 	Pedro.executeForm(*F2);
 	Pedro.signForm(*F3);
 	Pedro.executeForm(*F3);
+
+	delete F1;
+	delete F2;
+	delete F3;
 
 	return 0;
 }

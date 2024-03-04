@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:43:35 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/04 13:18:56 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/04 15:26:20 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class	AForm {
 		AForm(const std::string &name, const std::string &target, const int gradeToSign, const int gradeToExec);
 		AForm(const AForm &toCopy);
 		AForm	&operator=(const AForm &toCopy);
-		~AForm();
+		virtual	~AForm();
 
 		const std::string	getName() const;
 		const std::string	getTarget() const;
