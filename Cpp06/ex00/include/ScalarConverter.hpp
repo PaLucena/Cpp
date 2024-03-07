@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:58:55 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/04 17:31:30 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/07 10:44:48 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	ScalarConverter {
 	public:
 		~ScalarConverter();
 
-		static void		convert(const std::string &);
+		static void	convert(const std::string &);
 };
 
 #endif
