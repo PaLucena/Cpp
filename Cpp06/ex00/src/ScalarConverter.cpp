@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:58:43 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/07 11:29:57 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/08 16:35:19 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	findType(const std::string &s)
 
 	//	float
 	std::strtod(s.c_str(), &endPtr);
-	if ((*endPtr == 'f' || *endPtr == 'F') && *endPtr + 1 == '\0')
+	if (*endPtr == 'f' || *endPtr == 'F')
 		return 2;
 
 	//	double
@@ -95,24 +95,26 @@ void	ScalarConverter::convert(const std::string &s)
 		case 2:
 			std::cout << "  [FLOAT]" << std::endl;
 			fNb = std::atof(s.c_str());
+			iNb = static_cast<int>(fNb);
 			if (fNb > 31 && fNb < 127)
 				std::cout << "char: '" << static_cast<char>(fNb) << "'" << std::endl;
 			else
 				std::cout << "char: " << "Non displayable" << std::endl;
 			std::cout << "int: " << static_cast<int>(fNb) << std::endl;
-			std::cout << "float: " << fNb << ".0f" << std::endl;
-			std::cout << "double: " << static_cast<double>(fNb) << ".0" << std::endl;
+			std::cout << "float: " << fNb << (fNb == iNb ? ".0f" : "f") << std::endl;
+			std::cout << "double: " << static_cast<double>(fNb) << (fNb == iNb ? ".0" : "") << std::endl;
 			break ;
 		case 3:
 			std::cout << "  [DOUBLE]" << std::endl;
 			dNb = std::atof(s.c_str());
+			iNb = static_cast<int>(dNb);
 			if (dNb > 31 && dNb < 127)
 				std::cout << "char: '" << static_cast<char>(dNb) << "'" << std::endl;
 			else
 				std::cout << "char: " << "Non displayable" << std::endl;
 			std::cout << "int: " << static_cast<int>(dNb) << std::endl;
-			std::cout << "float: " << dNb << ".0f" << std::endl;
-			std::cout << "double: " << static_cast<double>(dNb) << ".0" << std::endl;
+			std::cout << "float: " << dNb << (dNb == iNb ? ".0f" : "f") << std::endl;
+			std::cout << "double: " << static_cast<double>(dNb) << (dNb == iNb ? ".0" : "") << std::endl;
 			break ;
 		case 4:
 			std::cout << "  [PSEUDO LITERAL]" << std::endl;
