@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:58:43 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/08 16:35:19 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/09 11:55:54 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	findType(const std::string &s)
 		return 4;
 
 	//	char
-	if (s.length() == 1 && s[0] > 31 && s[0] < 127)
-			return 0;
+	if (s.length() == 1 && ((s[0] > 31 && s[0] < 48) || (s[0] > 57 && s[0] < 127)))
+		return 0;
 
 	//	int
 	std::strtol(s.c_str(), &endPtr, 10);
