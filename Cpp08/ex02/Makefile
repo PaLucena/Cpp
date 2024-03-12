@@ -1,7 +1,7 @@
-NAME = Containers2.0
+NAME = Containers3.0
 
 SRC_PATH = src/
-SRC = main.cpp Span.cpp
+SRC = main.cpp
 
 OBJ_PATH = obj/
 OBJ = $(addprefix $(OBJ_PATH), $(SRC:.cpp=.o))
