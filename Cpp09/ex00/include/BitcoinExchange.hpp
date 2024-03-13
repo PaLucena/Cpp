@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:24:39 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/12 19:33:40 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:05:47 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <fstream>
 # include <stdlib.h>
 # include <string>
-# include <limits>
 # include <map>
 
 class BitcoinExchange {
@@ -42,19 +41,7 @@ class BitcoinExchange {
 		class OpenError: public std::exception {
 			public:
 				const char *What() const throw() {
-					return ("Could not open the DataBase.");
-				}
-		};
-		class NegativeError: public std::exception {
-			public:
-				const char *What() const throw() {
-					return ("Negative numbers not accepted.");
-				}
-		};
-		class TooBigError: public std::exception {
-			public:
-				const char *What() const throw() {
-					return ("Number too big.");
+					return ("Could not open file.");
 				}
 		};
 		class BadInputError: public std::exception {

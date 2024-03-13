@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:24:37 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/12 21:31:49 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:05:39 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ BitcoinExchange::BitcoinExchange(const std::string &fileName) {
 	std::string		line;
 	size_t			colon;
 
-	file.open("../" + fileName);
-	if (!file.is_open())
-		throw (BitcoinExchange::BadInputError());
-	else {
-		std::getline(file, line);
-		while (!line.empty()) {
-			std::getline(file, line);
-			colon = line.find(',');
-			if (colon == std::string::npos)
-				throw (BitcoinExchange::BadInputError());
-			_db.insert({line.substr(0, colon), atof(line.substr(colon + 1, line.length()).c_str())});
-		}
-		file.close();
+	file.open(fileName);
+	if (!file.is_open()) {
+		std::cout << fileName << std::endl;
+		throw (BitcoinExchange::OpenError());
 	}
+	std::getline(file, line);
+	while (!line.empty()) {
+		std::getline(file, line);
+		colon = line.find(',');
+		if (colon == std::string::npos)
+			throw (BitcoinExchange::BadInputError());
+		_db.insert(std::make_pair(line.substr(0, colon), atof(line.substr(colon + 1, line.length()).c_str())));
+	}
+	file.close();
 }
 
 BitcoinExchange::~BitcoinExchange() {}
@@ -46,22 +46,37 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &toCopy) {
 }
 
 void	BitcoinExchange::compareDataBases(const std::string &fileName) {
+	std::map<std::string, float>::iterator	it;
 	std::ifstream	file;
 	std::string		line;
 	size_t			pipe;
 	
-	file.open("../" + fileName);
+	file.open(fileName);
 	if (!file.is_open())
 		throw (BitcoinExchange::BadInputError());
-	else {
+	std::getline(file, line);
+	while (!line.empty()) {
 		std::getline(file, line);
-		while (!line.empty()) {
-			std::getline(file, line);
-			pipe = line.find('|');
-			if (pipe == std::string::npos)
-				throw (BitcoinExchange::BadInputError());
-			
+		pipe = line.find('|');
+		if (pipe == std::string::npos)
+			throw (BitcoinExchange::BadInputError());
+		if (atof(line.substr(pipe + 1, line.length()).c_str()) < 0)
+			std::cout << "Error: not a positive number." << std::endl;
+		else if (atof(line.substr(pipe + 1, line.length()).c_str()) > 1000)
+			std::cout << "Error: too large a number." << std::endl;
+		else if (atof(line.substr(5, 6).c_str()) < 1 || atof(line.substr(5, 6).c_str()) > 12 || atof(line.substr(8, 9).c_str()) < 0 || atof(line.substr(8, 9).c_str()) > 31)
+			std::cout << "Error: bad input => " << line.substr(0, pipe) << std::endl;
+		else {
+			std::cout << line.substr(0, pipe) << " => " << line.substr(pipe + 1, line.length()) << " = ";
+			it = _db.find(line.substr(0, pipe));
+			if (it != _db.end())
+				std::cout << it->second * atof(line.substr(pipe + 1, line.length()).c_str()) << std::endl;
+			else {
+				it = _db.lower_bound(line.substr(0, pipe));
+				it--;
+				std::cout << it->second * atof(line.substr(pipe + 1, line.length()).c_str()) << std::endl;
+			}
 		}
-		file.close();
 	}
+	file.close();
 }

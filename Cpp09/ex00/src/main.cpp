@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:25:39 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/12 15:57:30 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:17:48 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ int	main(int ac, char **av)
 {
 	try
 	{
-		if (ac != 2) {
-			throw (BitcoinExchange::OpenError());
+		if (ac != 2)
+			throw (BitcoinExchange::BadInputError());
 		BitcoinExchange	Base("data.csv");
+		Base.compareDataBases(av[1]);
 	}
 	catch (const std::exception &e)
 	{
