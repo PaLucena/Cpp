@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:24:39 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/13 19:05:47 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:12:35 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ class BitcoinExchange {
 		// Exceptions
 		class OpenError: public std::exception {
 			public:
-				const char *What() const throw() {
+				const char *what() const throw() {
 					return ("Could not open file.");
 				}
 		};
 		class BadInputError: public std::exception {
 			public:
-				const char *What() const throw() {
+				const char *what() const throw() {
 					return ("Bad input.");
 				}
 		};

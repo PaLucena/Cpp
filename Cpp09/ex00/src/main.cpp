@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:25:39 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/13 19:17:48 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:20:39 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cerr << "[Exception] Error: " << e.what() << std::endl;
 	}
 	return 0;
 }
