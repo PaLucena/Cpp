@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 13:39:30 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/11 17:46:43 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:34:24 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	Span::shortestSpan()
 		currSpan = *i - iPre;
 		if (currSpan < minSpan)
 			minSpan = currSpan;
+		iPre = *i;
 	}
 	return (minSpan);
 }

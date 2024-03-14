@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:27:59 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/11 13:33:25 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:33:57 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	easyfind(const T &container, int data) {
 
 	for (iter = container.begin(); iter != container.end(); iter++) {
 		if (*iter == data) {
-			std::cout << "Value " << data << " in container." << std::cout;
+			std::cout << "Value " << data << " in container." << std::endl;
 			return ;
 		}
 	}
