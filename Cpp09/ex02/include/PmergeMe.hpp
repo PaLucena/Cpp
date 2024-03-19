@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 10:19:23 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/18 17:26:18 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/19 23:21:36 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <limits>
 # include <list>
 # include <deque>
-# include <ctime>
+# include <sys/time.h>
 
 class PmergeMe {
 	private:
@@ -39,9 +39,8 @@ class PmergeMe {
 		// Member functions
 		bool	isInt(const char *);
 		bool	findInList(int);
-		bool	findInDeque(int);
 		void	printList();
-		void	order();
+		int		getSize();
 		void	orderList();
 		void	orderDeque();
 
@@ -56,6 +55,12 @@ class PmergeMe {
 			public:
 				const char *what() const throw() {
 					return ("Duplicate number.");
+				}
+		};
+		class TooFewException: public std::exception {
+			public:
+				const char *what() const throw() {
+					return ("Not enough numbers.");
 				}
 		};
 };
