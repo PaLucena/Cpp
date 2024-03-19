@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 12:33:32 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/19 23:22:49 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/19 23:51:55 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,19 @@ int	PmergeMe::getSize() {
 }
 
 void	PmergeMe::orderList() {
-	int	min = *_list.begin(), max = *_list.begin();
-	std::list<int>::iterator	it;
+	std::list<int>::iterator	it = _list.begin();
+	int	min = *it, max = *it;
 
-	for (it = _list.begin(); it != _list.end(); it++) {
+	for (; it != _list.end(); it++) {
 		if (*it < min)
 			min = *it;
 		if (*it > max)
 			max = *it;
 	}
 
-	int *freq = new int[max - min + 1];
+	int range = max - min + 1;
+
+	int *freq = new int[range];
 	for (int i = 0; i < max - min + 1; i++)
 		freq[i] = 0;
 
@@ -86,38 +88,40 @@ void	PmergeMe::orderList() {
 		freq[*it - min]++;
 	}
 
-	for (int i = 1; i < max - min + 1; i++)
+	for (int i = 1; i < range; i++)
 		freq[i] += freq[i - 1];
 
-	std::list<int> sorted;
-	for (it = --_list.end(); it != _list.begin(); it--) {
-		sorted.push_front(*it);
-		freq[*it - min]--;
+	int	*sorted = new int[_list.size()];
+	int index = 0;
+	for (int i = min; i <= max; i++) {
+		while (freq[i - min] > 0) {
+			sorted[index++] = i;
+			freq[i - min]--;
+		}
 	}
-	sorted.push_front(*it);
 
-	std::cout << std::endl << std::endl << std::endl;
-	for (it = sorted.begin(); it != sorted.end(); it++)
-		std::cout << *it << " ";
-	std::cout << std::endl;
-	std::cout << std::endl << std::endl << std::endl;
+	_list.clear();
+	for (int i = 0; i < index; i++)
+		_list.push_back(sorted[i]);
 
-	_list = sorted;
-	delete[] freq;
+//	delete[] freq;
+//	delete[] sorted;
 }
 
 void	PmergeMe::orderDeque() {
-	int	min = *_deque.begin(), max = *_deque.begin();
-	std::deque<int>::iterator	it;
+	std::deque<int>::iterator	it = _deque.begin();
+	int	min = *it, max = *it;
 
-	for (it = _deque.begin(); it != _deque.end(); it++) {
+	for (; it != _deque.end(); it++) {
 		if (*it < min)
 			min = *it;
 		if (*it > max)
 			max = *it;
 	}
 
-	int *freq = new int[max - min + 1];
+	int range = max - min + 1;
+
+	int *freq = new int[range];
 	for (int i = 0; i < max - min + 1; i++)
 		freq[i] = 0;
 
@@ -125,16 +129,22 @@ void	PmergeMe::orderDeque() {
 		freq[*it - min]++;
 	}
 
-	for (int i = 1; i < max - min + 1; i++)
+	for (int i = 1; i < range; i++)
 		freq[i] += freq[i - 1];
 
-	std::deque<int> sorted;
-	for (it = --_deque.end(); it != _deque.begin(); it--) {
-		sorted.push_front(*it);
-		freq[*it - min]--;
+	int	*sorted = new int[_deque.size()];
+	int index = 0;
+	for (int i = min; i <= max; i++) {
+		while (freq[i - min] > 0) {
+			sorted[index++] = i;
+			freq[i - min]--;
+		}
 	}
-	sorted.push_front(*it);
 
-	_deque = sorted;
-	delete[] freq;
+	_deque.clear();
+	for (int i = 0; i < index; i++)
+		_deque.push_back(sorted[i]);
+
+//	delete[] freq;
+//	delete[] sorted;
 }
