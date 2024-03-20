@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:24:37 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/14 11:36:24 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/20 11:28:32 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ void	BitcoinExchange::compareDataBases(const std::string &fileName) {
 			if (it != _db.end())
 				std::cout << it->second * atof(line.substr(pipe + 1, line.length()).c_str()) << std::endl;
 			else {
-				it = _db.lower_bound(line.substr(0, pipe));
-				it--;
+				it = _db.lower_bound(line.substr(0, pipe));,
+				if (it != _db.begin())
+					it--;
 				std::cout << it->second * atof(line.substr(pipe + 1, line.length()).c_str()) << std::endl;
 			}
 		}
