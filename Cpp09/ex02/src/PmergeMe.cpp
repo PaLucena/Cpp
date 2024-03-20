@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 12:33:32 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/19 23:51:55 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/20 02:01:32 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ PmergeMe::PmergeMe(char **av): _list(), _deque() {
 		if (!isInt(av[i]))
 			throw (PmergeMe::NotIntException());
 		nb = std::atoi(av[i]);
-	/* 	if (findInList(nb))
-			throw (PmergeMe::DuplicateException()); */
 		_list.push_back(nb);
 		_deque.push_back(nb);
 	}
@@ -44,18 +42,6 @@ bool	PmergeMe::isInt(const char *str) {
 	return ((std::atoi(str) && std::atoi(str) >= 0 && std::atol(str) <= INT_MAX) ? (true) : (false));
 }
 
-bool	PmergeMe::findInList(int nb) {
-	std::list<int>::iterator it;
-
-	for (it = _list.begin(); it != _list.end(); it++) {
-		if (*it == nb) {
-			std::cout << nb << " " << *it << std::endl;
-			return (true);
-		}
-	}
-	return (false);
-}
-
 void	PmergeMe::printList() {
 	std::list<int>::iterator it;
 	for (it = _list.begin(); it != _list.end(); it++)
@@ -67,84 +53,106 @@ int	PmergeMe::getSize() {
 	return (_list.size());
 }
 
-void	PmergeMe::orderList() {
-	std::list<int>::iterator	it = _list.begin();
-	int	min = *it, max = *it;
-
-	for (; it != _list.end(); it++) {
-		if (*it < min)
-			min = *it;
-		if (*it > max)
-			max = *it;
-	}
-
-	int range = max - min + 1;
-
-	int *freq = new int[range];
-	for (int i = 0; i < max - min + 1; i++)
-		freq[i] = 0;
-
-	for (it = _list.begin(); it != _list.end(); ++it) {
-		freq[*it - min]++;
-	}
-
-	for (int i = 1; i < range; i++)
-		freq[i] += freq[i - 1];
-
-	int	*sorted = new int[_list.size()];
-	int index = 0;
-	for (int i = min; i <= max; i++) {
-		while (freq[i - min] > 0) {
-			sorted[index++] = i;
-			freq[i - min]--;
-		}
-	}
-
-	_list.clear();
-	for (int i = 0; i < index; i++)
-		_list.push_back(sorted[i]);
-
-//	delete[] freq;
-//	delete[] sorted;
+std::list<int>::iterator	PmergeMe::getListStart() {
+	return (_list.begin());
 }
 
-void	PmergeMe::orderDeque() {
-	std::deque<int>::iterator	it = _deque.begin();
-	int	min = *it, max = *it;
+std::list<int>::iterator	PmergeMe::getListEnd() {
+	return (_list.end());
+}
 
-	for (; it != _deque.end(); it++) {
-		if (*it < min)
-			min = *it;
-		if (*it > max)
-			max = *it;
-	}
+std::deque<int>::iterator	PmergeMe::getDequeStart() {
+	return (_deque.begin());
+}
 
-	int range = max - min + 1;
+std::deque<int>::iterator	PmergeMe::getDequeEnd() {
+	return (_deque.end());
+}
 
-	int *freq = new int[range];
-	for (int i = 0; i < max - min + 1; i++)
-		freq[i] = 0;
+void	PmergeMe::mergeList(std::list<int>::iterator left, std::list<int>::iterator mid, std::list<int>::iterator right) {
+	std::list<int> L(left, mid);
+	std::list<int> R(mid, right);
 
-	for (it = _deque.begin(); it != _deque.end(); ++it) {
-		freq[*it - min]++;
-	}
+	std::list<int>::iterator it = left;
+	std::list<int>::iterator itL = L.begin();
+	std::list<int>::iterator itR = R.begin();
 
-	for (int i = 1; i < range; i++)
-		freq[i] += freq[i - 1];
-
-	int	*sorted = new int[_deque.size()];
-	int index = 0;
-	for (int i = min; i <= max; i++) {
-		while (freq[i - min] > 0) {
-			sorted[index++] = i;
-			freq[i - min]--;
+	while (itL != L.end() && itR != R.end()) {
+		if (*itL <= *itR) {
+			*it = *itL;
+			++itL;
+		} else {
+			*it = *itR;
+			++itR;
 		}
+		++it;
 	}
 
-	_deque.clear();
-	for (int i = 0; i < index; i++)
-		_deque.push_back(sorted[i]);
+	while (itL != L.end()) {
+		*it = *itL;
+		++it;
+		++itL;
+	}
 
-//	delete[] freq;
-//	delete[] sorted;
+	while (itR != R.end()) {
+		*it = *itR;
+		++it;
+		++itR;
+	}
+}
+
+void	PmergeMe::sortList(std::list<int>::iterator left, std::list<int>::iterator right) {
+	if (std::distance(left, right) > 1) {
+		std::list<int>::iterator mid = left;
+		std::advance(mid, std::distance(left, right) / 2);
+
+		sortList(left, mid);
+		sortList(mid, right);
+
+		mergeList(left, mid, right);
+	}
+}
+
+void	PmergeMe::mergeDeque(std::deque<int>::iterator left, std::deque<int>::iterator mid, std::deque<int>::iterator right) {
+	std::deque<int> L(left, mid);
+	std::deque<int> R(mid, right);
+
+	std::deque<int>::iterator it = left;
+	std::deque<int>::iterator itL = L.begin();
+	std::deque<int>::iterator itR = R.begin();
+
+	while (itL != L.end() && itR != R.end()) {
+		if (*itL <= *itR) {
+			*it = *itL;
+			++itL;
+		} else {
+			*it = *itR;
+			++itR;
+		}
+		++it;
+	}
+
+	while (itL != L.end()) {
+		*it = *itL;
+		++it;
+		++itL;
+	}
+
+	while (itR != R.end()) {
+		*it = *itR;
+		++it;
+		++itR;
+	}
+}
+
+void	PmergeMe::sortDeque(std::deque<int>::iterator left, std::deque<int>::iterator right) {
+	if (std::distance(left, right) > 1) {
+		std::deque<int>::iterator mid = left;
+		std::advance(mid, std::distance(left, right) / 2);
+
+		sortDeque(left, mid);
+		sortDeque(mid, right);
+
+		mergeDeque(left, mid, right);
+	}
 }

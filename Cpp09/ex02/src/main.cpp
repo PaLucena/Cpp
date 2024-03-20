@@ -6,7 +6,7 @@
 /*   By: palucena <palucena@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 10:19:02 by palucena          #+#    #+#             */
-/*   Updated: 2024/03/19 23:25:50 by palucena         ###   ########.fr       */
+/*   Updated: 2024/03/20 01:51:42 by palucena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int	main(int ac, char **av)
 		toOrder.printList();
 
 		gettimeofday(&start, NULL);
-		toOrder.orderList();
+		toOrder.sortList(toOrder.getListStart(), toOrder.getListEnd());
 		gettimeofday(&end, NULL);
 		listTime = end.tv_usec - start.tv_usec;
 
 		gettimeofday(&start, NULL);
-		toOrder.orderDeque();
+		toOrder.sortDeque(toOrder.getDequeStart(), toOrder.getDequeEnd());
 		gettimeofday(&end, NULL);
 		dequeTime = end.tv_usec - start.tv_usec;
 
